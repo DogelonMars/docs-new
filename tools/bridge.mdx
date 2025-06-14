@@ -1,32 +1,16 @@
 ---
 title: "Bridges"
-description: "Description of your new file."
+description: "How to move between Ethereum and Rufus Chain."
 ---
 
-https://rufus-sepolia-testnet.bridge.caldera.xyz/
+Rufus Chain is an Ethereum Layer 2 network powered by Arbitrum Nitro. To use dApps, participate in the Dogelon metaverse, or interact with smart contracts on Rufus, users first need to bridge their assets from Ethereum.
 
-A bridge is a tool that allows users to move assets such as ETH from Ethereum to Abstract and vice versa.
-Under the hood, bridging works by having two smart contracts deployed:
+## Native Bridges
 
-1. A smart contract deployed to Ethereum (L1).
-2. A smart contract deployed to Abstract (L2).
-
-These smart contracts communicate with each other to facilitate the deposit and withdrawal of assets between the two chains.
-
-## Native Bridge
-
-Abstract has a native bridge to move assets between Ethereum and
-Abstract for free (excluding gas fees) that supports bridging both ETH and ERC-20 tokens.
-
-Deposits from L1 to L2 take around \~15 minutes, whereas
-withdrawals from L2 to L1 currently take up to 24 hours due to the
-built-in [withdrawal delay](https://docs.zksync.io/build/resources/withdrawal-delay#withdrawal-delay).
-
-<CardGroup>
+<CardGroup cols={2}>
   <Card title="Mainnet Bridge" icon="bridge" href="https://portal.mainnet.abs.xyz/bridge/">
     Visit the native bridge to move assets between Ethereum and Abstract.
   </Card>
-
   <Card title="Testnet Bridge" icon="bridge" href="https://portal.testnet.abs.xyz/bridge/">
     Visit the native bridge to move assets between Ethereum and Abstract.
   </Card>
