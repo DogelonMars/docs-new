@@ -14,11 +14,11 @@
         "tab": "Guides",
         "groups": [
           {
-            "group": "Get Started",
+            "group": "Overview",
             "pages": [
               "index",
-              "quickstart",
-              "development"
+              "what-is-rufus-chain",
+              "connect-to-rufus"
             ]
           },
           {
