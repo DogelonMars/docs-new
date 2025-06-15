@@ -43,9 +43,9 @@
           {
             "group": "Frax",
             "pages": [
-              "guides/frax/overview",
-              "guides/frax/how-to-stake",
-              "guides/frax/how-to-unstake"
+              "guides/Frax/Overview",
+              "guides/Frax/how-to-stake",
+              "guides/Frax/how-to-unstake"
             ]
           }
         ]
