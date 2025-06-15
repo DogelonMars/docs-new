@@ -22,6 +22,12 @@
             ]
           },
           {
+            "group": "Metaverse",
+            "pages": [
+              "metaverse/intro"
+            ]
+          },
+          {
             "group": "Tools",
             "pages": [
               "tools/block-explorers",
