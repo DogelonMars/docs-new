@@ -72,7 +72,7 @@
     }
   },
   "logo": {
-    "light": "/logo/logo_orange.svg",
+    "light": "/logo/logo.svg",
     "dark": "/logo/logo_orange.svg"
   },
   "navbar": {
