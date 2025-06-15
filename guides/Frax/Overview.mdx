@@ -1,0 +1,34 @@
+---
+title: "Overview"
+description: "Dogelon Mars ETH Staking"
+---
+
+![Ethstaking Pn](/images/ethstaking.png)
+
+<Info>
+  Our goal is to introduce the Dogelon community to FRAX ETH Staking and help secure the ethereum network.
+</Info>
+
+## What is Frax?
+
+Frax Finance is a stablecoin protocol that issues decentralized stablecoins such as FRAX (dollar-pegged), frxETH (ETH-pegged), and FPI (CPI-pegged). It also supports these stablecoins with its own subprotocols, such as Fraxlend, Fraxswap, and Fraxferry. With over \$1 billion worth of FRAX in circulation and 128k live validators for frxETH, Frax has successfully created a self-sufficient DeFi microcosm. The aim is to boost developer engagement, construct ecosystem-complementing products, and promote the integration of Frax into existing protocols.
+
+[Frax Home](https://frax.finance/) | [Frax Documentation](https://docs.frax.finance/)
+
+## How does this work?
+
+The Frax Ether system offers a straightforward, secure, and DeFi-native method to earn interest on ETH by leveraging the Frax Finance ecosystem. It involves three primary components:
+
+- [**Frax Ether (frxETH)**](https://etherscan.io/address/0x5E8422345238F34275888049021821E8E08CAa1f): frxETH is a stablecoin pegged to ETH, acting as an entry point for ETH into the Frax ecosystem. Each frxETH equals one ETH, with its peg defended to keep the exchange rate between 1.01-.9900 ETH per 1 frxETH.
+- [**Staked Frax Ether (sfrxETH)**](https://etherscan.io/address/0xac3E018457B222d93114458476f3E3416Abbe38F): By exchanging frxETH for sfrxETH, holders become eligible for staking yield. The yield, accrued from Frax Ether validators, is distributed to sfrxETH holders and can be redeemed by converting sfrxETH back to frxETH.
+- [**Frax ETH Minter (frxETHMinter)**](https://etherscan.io/address/0xbAFA44EFE7901E04E39Dad13167D089C559c1138): This component allows the exchange of ETH for frxETH, bringing ETH into the Frax ecosystem and creating new validator nodes when possible.
+
+Unlike traditional ETH staking, this process eliminates the need to run [validators](https://launchpad.ethereum.org/en/faq), allows yield to be earned on any amount of ETH, and enables withdrawals at any time and size. This high degree of flexibility and composability greatly simplifies the ETH staking process.
+
+The staking yield from Frax Ether validators increases the amount of frxETH in the sfrxETH vault over time. As a result, holders of sfrxETH can redeem their stakes for a higher amount of frxETH than they initially deposited. This concept is similar to other autocompounding tokens in DeFi, like Aave's aUSDC and Compound's cUSDC.
+
+For those interested in the technical specifications, frxETH implements the ERC-2612 standard, while sfrxETH complies with the ERC-4626 vault standard and is also ERC-2612 compliant. frxETHMinter operates based on the deposit of ETH and can spin up new validators when its balance surpasses 32 ETH. The withdrawal credential is shared by all the validators on the stack and is set to the Frax treasury contract for secure handling.
+
+For real-time information and monitoring of validators, please see [link here](https://facts.frax.finance/frxeth/validators).
+
+This process allows for a more streamlined and efficient way to stake ETH, bringing about greater accessibility and opportunities in the DeFi space.
