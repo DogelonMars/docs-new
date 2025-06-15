@@ -47,7 +47,16 @@
             ]
           },
           {
-            "group": "Frax",
+            "group": "Dogelon Stargate",
+            "pages": [
+              "guides/stargate/how-to-wrap",
+              "guides/stargate/bridge-eth-sol",
+              "guides/stargate/bridge-sol-eth",
+              "guides/stargate/smart-contract"
+            ]
+          },
+          {
+            "group": "Frax ETH Staking",
             "pages": [
               "guides/Frax/Overview",
               "guides/Frax/how-to-stake",

@@ -1,0 +1,103 @@
+---
+title: "Smart Contract Audits"
+description: "Audits and information on the WrappedElon contract"
+---
+
+## WrappedElon
+
+WrappedElon converts native ELON (18 decimals) to a lower-precision token (4 decimals) so it can bridge to Solana using Stargate.
+
+### Specifications
+
+- Truncates ELON **18 → 4 decimals**
+- Owner (DAO or admin) can pause wrapping/unwrapping
+- Designed for compatibility with chains that do not support full 18 decimal precision
+- Can be adapted for other tokens in the future
+- Deployed as part of the **Dogelon Mars Stargate** bridging platform
+
+**Source:** [GitHub Repository](https://github.com/DogelonMars/wrapped-elon)
+
+### Audit Reports
+
+| Auditor | Report                                                                                 |
+| ------- | -------------------------------------------------------------------------------------- |
+| Boustro | [View PDF](https://github.com/DogelonMars/wrapped-elon/blob/master/audits/boustro.pdf) |
+| Kekkai  | [View PDF](https://github.com/DogelonMars/wrapped-elon/blob/master/audits/kekkai.pdf)  |
+| Pashov  | [View PDF](https://github.com/DogelonMars/wrapped-elon/blob/master/audits/pashov.pdf)  |
+
+## Key Code Snippet
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.19;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/access/Ownable2Step.sol";
+
+/**
+ * @title WrappedElon
+ * @dev Wraps native ELON (18 decimals) into wELON (4 decimals) for cross-chain transfers.
+ */
+contract WrappedElon is ERC20, Ownable2Step {
+    ERC20 private constant ELON = ERC20(0x761D38e5ddf6ccf6Cf7c55759d5210750B5D60F3);
+    uint256 private constant MIN_ELON_AMOUNT = 100_000_000_000_000; // 0.0001 ELON
+
+    bool public wrapEnabled = true;
+    bool public unwrapEnabled = true;
+
+    event Wrap(address addr, uint256 elonAmount, uint256 wrappedAmount);
+    event Unwrap(address addr, uint256 elonAmount, uint256 wrappedAmount);
+    event WrapEnabled(bool enabled);
+    event UnwrapEnabled(bool enabled);
+
+    constructor() ERC20("Dogelon", "ELON") {}
+
+    function decimals() public view override returns (uint8) {
+        return 4;
+    }
+
+    /**
+     * @notice Wrap ELON into wELON
+     */
+    function wrap(uint256 elonAmount) external {
+        require(wrapEnabled, "Wrapping disabled");
+        require(elonAmount >= MIN_ELON_AMOUNT, "Minimum 0.0001 ELON");
+
+        uint256 wrappedAmount = elonAmount / MIN_ELON_AMOUNT;
+        uint256 wrappableElon = wrappedAmount * MIN_ELON_AMOUNT;
+
+        ELON.transferFrom(msg.sender, address(this), wrappableElon);
+        _mint(msg.sender, wrappedAmount);
+
+        emit Wrap(msg.sender, wrappableElon, wrappedAmount);
+    }
+
+    /**
+     * @notice Unwrap wELON back to ELON
+     */
+    function unwrap(uint256 wrappedAmount) external {
+        require(unwrapEnabled, "Unwrapping disabled");
+        require(wrappedAmount > 0, "Cannot unwrap zero");
+
+        uint256 elonAmount = wrappedAmount * MIN_ELON_AMOUNT;
+        _burn(msg.sender, wrappedAmount);
+        ELON.transfer(msg.sender, elonAmount);
+
+        emit Unwrap(msg.sender, elonAmount, wrappedAmount);
+    }
+
+    /**
+     * @notice Admin: Enable/disable wrapping and unwrapping
+     */
+    function setEnabledState(bool _wrapEnabled, bool _unwrapEnabled) external onlyOwner {
+        if (wrapEnabled != _wrapEnabled) {
+            wrapEnabled = _wrapEnabled;
+            emit WrapEnabled(_wrapEnabled);
+        }
+        if (unwrapEnabled != _unwrapEnabled) {
+            unwrapEnabled = _unwrapEnabled;
+            emit UnwrapEnabled(_unwrapEnabled);
+        }
+    }
+}
+```
