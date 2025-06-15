@@ -73,7 +73,7 @@
   },
   "logo": {
     "light": "/images/logo/logo.svg",
-    "dark": "/logo/logo_orange.svg"
+    "dark": "/images/logo/logo.svg"
   },
   "navbar": {
     "links": [
