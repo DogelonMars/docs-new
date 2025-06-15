@@ -55,18 +55,18 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "Follow Us",
+          "href": "https://twitter.com/dogelonmars",
+          "icon": "x"
         },
         {
-          "anchor": "Community",
-          "href": "https://mintlify.com/community",
-          "icon": "slack"
+          "anchor": "Telegram",
+          "href": "https://t.me/DogelonMars",
+          "icon": "telegram"
         },
         {
           "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
+          "href": "https://dogelonmars.com/blog",
           "icon": "newspaper"
         }
       ]
@@ -85,15 +85,14 @@
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Home",
+      "href": "https://dogelonmars.com/"
     }
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://twitter.com/dogelonmars",
+      "github": "https://github.com/DogelonMars"
     }
   }
 }
