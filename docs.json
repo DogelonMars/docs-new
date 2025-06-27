@@ -47,6 +47,12 @@
             ]
           },
           {
+            "group": "Dogelon: Land on Mars",
+            "pages": [
+              "guides/land-on-mars/how-to-mint-land"
+            ]
+          },
+          {
             "group": "Dogelon Stargate",
             "pages": [
               "guides/stargate/how-to-wrap",
